@@ -61,7 +61,6 @@
         .static-heart {
             position: absolute;
             color: var(--heart-red);
-            /* Combination of pulse and blink */
             animation: blinkPulse 2.5s ease-in-out infinite alternate;
             pointer-events: none;
         }
@@ -146,7 +145,7 @@
     <section class="hero">
         <div class="title-container">
             <h1>Happy Valentine's Day, Mama</h1>
-            <p style="color: #bc8a8a; margin-top: 10px;">Scroll Down↓</p>
+            <p style="color: #bc8a8a; margin-top: 10px;">Scroll Down ↓</p>
         </div>
         
         <div class="heart-shape-container" id="heart-box">
@@ -156,35 +155,48 @@
 
     <div class="scroll-content">
         <div class="row">
-            <div class="pic-frame"><img src="https://via.placeholder.com/130x170" alt="1"></div>
+            <div class="pic-frame">
+                <img src="att.1FB4PivHDKMVoZ-pWjg7-6CUhUgdn-PxtV0ukY5v-5Y.jpeg" alt="Memory 1">
+            </div>
             <div class="message-text">"You are the heart of our family, and I am so lucky to be your child."</div>
         </div>
+
         <div class="row">
-            <div class="pic-frame"><img src="https://via.placeholder.com/130x170" alt="2"></div>
+            <div class="pic-frame">
+                <img src="att.GVU-CHU_vY6XIFvqiC11uXn_PM6IYgxZi1wru9Jl3eU.png.jpeg" alt="Memory 2">
+            </div>
             <div class="message-text">"Thank you for teaching me how to love and how to be kind."</div>
         </div>
+
         <div class="row">
-            <div class="pic-frame"><img src="https://via.placeholder.com/130x170" alt="3"></div>
+            <div class="pic-frame">
+                <img src="att.9BkwkXcJHSpuAO88a4XX8RGSUlgiVbkUh-6s_hsWKHY.jpeg" alt="Memory 3">
+            </div>
             <div class="message-text">"Every happy memory I have starts with you, Mama."</div>
         </div>
+
         <div class="row">
-            <div class="pic-frame"><img src="https://via.placeholder.com/130x170" alt="4"></div>
+            <div class="pic-frame">
+                <img src="att.TsGqrb49I-ecsPQj51qgYkJEAiuPqWQAQ_QgNXyMCJw.jpeg" alt="Memory 4">
+            </div>
             <div class="message-text">"Your strength is my inspiration. Happy Valentine's Day!"</div>
         </div>
+
         <div class="row">
-            <div class="pic-frame"><img src="https://via.placeholder.com/130x170" alt="5"></div>
+            <div class="pic-frame">
+                <img src="att.dZzgN9xQuNk1a-YreiYJ3FSd5BmLPuOAJJtI7vaP6W0.jpeg" alt="Memory 5">
+            </div>
             <div class="message-text">"I love you more than all these hearts combined. Forever and always."</div>
         </div>
     </div>
 
     <footer>
-        Forever, Your Child❤️
+        Forever, Your Child ❤️
     </footer>
 
     <script>
         const heartCloud = document.getElementById('heart-cloud');
 
-        // 1. Generate hearts that fill the heart shape
         function growFullHeart() {
             const totalHearts = 800;
             for (let i = 0; i < totalHearts; i++) {
@@ -202,23 +214,19 @@
                 heart.style.top = (225 + y * 12) + 'px';
                 
                 heart.style.fontSize = (Math.random() * 12 + 10) + 'px';
-                // Random animation delay so they blink at different times
                 heart.style.animationDelay = Math.random() * 5 + 's';
 
                 heartCloud.appendChild(heart);
             }
         }
 
-        // 2. Falling hearts starting ONLY from the heart container
         function spawnFalling() {
             const f = document.createElement('div');
             f.classList.add('falling-heart');
             f.innerHTML = '❤️';
             
-            // Get the current position of the big heart on the screen
             const rect = heartCloud.getBoundingClientRect();
             
-            // Set spawn point within the big heart's boundaries
             f.style.left = (rect.left + (Math.random() * rect.width)) + 'px';
             f.style.top = (rect.top + (Math.random() * rect.height)) + 'px';
             
@@ -232,7 +240,6 @@
         growFullHeart();
         setInterval(spawnFalling, 450);
 
-        // Scroll Reveal
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
         }, { threshold: 0.1 });
